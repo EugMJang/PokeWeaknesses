@@ -1,0 +1,15 @@
+{
+    "name": "Pokemon showdown weaknesses",
+    "version": "0.0.1",
+    "description": "This will provide info about the weaknesses of the pokemon battling.",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "js": ["content.js"],
+            "matches": ["https://play.pokemonshowdown.com/*"]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
