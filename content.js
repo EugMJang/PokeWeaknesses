@@ -1,20 +1,30 @@
-function get_name_of_pokemon() {
-    const rstatbar = document.getElementsByClassName("rstatbar")[0];
-    const lstatbar = document.getElementsByClassName("lstatbar")[0];
-
-    let pokemon1; //Your pokemon
-    let pokemon2; //Their pokemon
-    if (rstatbar != null) {
-        pokemon1 = rstatbar.getElementsByTagName("strong")[0].textContent.split(" ")[0];
-        console.log(pokemon1);
-        
-    }
-    if (lstatbar != null) {
-        pokemon2 = lstatbar.getElementsByTagName("strong")[0].textContent.split(" ")[0];
-        console.log(pokemon2);
-
-    }
-    setTimeout(get_name_of_pokemon, 1000); //Recursive loop of this function using setTimeout
+function _send_message(msg, pokemon) {
+    chrome.runtime.sendMessage({msg: msg, pokemon: pokemon})
 }
 
-get_name_of_pokemon()
+function _get_name_of_pokemon() {
+    const leftstatbar = document.getElementsByClassName("rstatbar")[0];
+    const rightstatbar = document.getElementsByClassName("lstatbar")[0];
+
+    let leftpokemon; //Your pokemon
+    let rightpokemon; //Their pokemon
+    if (leftstatbar != undefined) {
+        leftpokemon = leftstatbar.getElementsByTagName("strong")[0].textContent.split(" ")[0];
+        console.log(leftpokemon);
+
+        _send_message("leftpokemon", leftpokemon);
+    } else {
+        _send_message("leftpokemon", null);
+    }
+    if (rightstatbar != undefined) {
+        rightpokemon = rightstatbar.getElementsByTagName("strong")[0].textContent.split(" ")[0];
+        console.log(rightpokemon);
+
+        _send_message("rightpokemon", rightpokemon);
+    } else {
+        _send_message("rightpokemon", null);
+    }
+    setTimeout(_get_name_of_pokemon, 1000); //Recursive loop of this function using setTimeout
+}
+
+_get_name_of_pokemon()
