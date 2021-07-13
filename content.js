@@ -10,7 +10,7 @@ function _get_name_of_pokemon() {
     let rightpokemon; //Their pokemon
     if (leftstatbar != undefined) {
         leftpokemon = leftstatbar.getElementsByTagName("strong")[0].textContent.split(" ")[0];
-        console.log(leftpokemon);
+        //console.log(leftpokemon);
 
         _send_message("leftpokemon", leftpokemon);
     } else {
@@ -18,7 +18,7 @@ function _get_name_of_pokemon() {
     }
     if (rightstatbar != undefined) {
         rightpokemon = rightstatbar.getElementsByTagName("strong")[0].textContent.split(" ")[0];
-        console.log(rightpokemon);
+        //console.log(rightpokemon);
 
         _send_message("rightpokemon", rightpokemon);
     } else {

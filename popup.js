@@ -1,9 +1,11 @@
+import {get_pokemon_weaknesses} from "./pokemon-types.js"
+
 chrome.runtime.onMessage.addListener((request) => {
-    console.log(request.pokemon);
-    pokemon = document.getElementById(request.msg);
+    const pokemon = document.getElementById(request.msg);
     if (request.pokemon != null) {
-        pokemon.innerHTML = request.pokemon;
+        pokemon.innerHTML = "<h1>" + request.pokemon + "</h1>";
+        let weaknesses = get_pokemon_weaknesses(request);
     } else {
-        pokemon.innerHTML = "";
+        pokemon.innerHTML = "<h1>None<h1>";
     }
 });
