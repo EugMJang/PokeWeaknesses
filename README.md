@@ -7,6 +7,7 @@ Download these files as a zip file and unzip the files. Then go to your extensio
 ## Usage
 ![example gif](visuals/example.gif)
 ![example image](visuals/example.png)
+
 When you enter a battle in Pokemon Showdown, just click the extension icon at the top right and you will see the type information for each pokemon in battle.
 
 ## TODO
